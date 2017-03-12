@@ -4,3 +4,6 @@ npm install -g typescript
 npm install -g @angular/cli
 // use preprocessor instead of css: scss, sass, stylus, less
 ng new E-Bill-frontend --style=less
+
+//can not run 'ng serve'
+npm install -g @angular/cli@latest

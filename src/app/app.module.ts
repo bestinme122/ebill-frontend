@@ -6,6 +6,10 @@ import { HttpModule } from '@angular/http';
 //Component
 import { AppComponent } from './app.component';
 import { ShopListComponent } from './shop.component';
+import { LoginComponent } from './component/login/login.component';
+
+
+import { routing }        from './app.route';
 
 //Service
 import { ShopService } from './service/shop.service';
@@ -13,12 +17,14 @@ import { ShopService } from './service/shop.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ShopListComponent
+    ShopListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [ShopService],
   bootstrap: [AppComponent]
