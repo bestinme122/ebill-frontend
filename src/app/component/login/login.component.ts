@@ -36,12 +36,14 @@ export class LoginComponent {
 
   login() {
     this.loading = true;
+    console.log('login with: ' + this.user.username + ' : ' + this.user.password);
     // Call removeComment() from CommentService to delete comment
     this.authService.login(this.user.username, this.user.password).subscribe(
+
       result => {
         if (result) {
           // login successful
-          this.router.navigate(['/']);
+          this.router.navigate(['shop']);
         } else {
           // login failed
           this.error = 'Username or password is incorrect';

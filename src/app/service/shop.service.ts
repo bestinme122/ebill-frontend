@@ -15,7 +15,7 @@ export class ShopService {
   constructor(private http: Http) {
   }
 
-  private shopsUrl = 'http://localhost:3000/shop';
+  private shopsUrl = 'http://localhost:3000/shop/3';
 
   // Fetch all existing comments
   getShops(): Observable<Shop[]> {

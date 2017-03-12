@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, RequestOptions } from '@angular/http';
+import { AuthRequest } from './app.authRequest';
 
 //Component
 import { AppComponent } from './app.component';
-import { ShopListComponent } from './shop.component';
+import { ShopListComponent } from './component/shop/shop.component';
 import { LoginComponent } from './component/login/login.component';
 
 
-import { routing }        from './app.route';
+import { routes }        from './app.route';
+import {AuthenticationService} from "./service/auth.service";
+import {RouterModule} from "@angular/router";
+// import {LocationStrategy, HashLocationStrategy} from "@angular/common";
 
 //Service
-import { ShopService } from './service/shop.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,13 @@ import { ShopService } from './service/shop.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    RouterModule.forRoot(routes)
   ],
-  providers: [ShopService],
+  providers: [
+    AuthenticationService,
+    {provide: RequestOptions, useClass: AuthRequest},
+    // {provide : LocationStrategy, useClass: HashLocationStrategy}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

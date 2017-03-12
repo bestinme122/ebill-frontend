@@ -2,7 +2,7 @@
  * Created by TRONGNV on 3/11/2017.
  */
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Response, Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 
@@ -26,7 +26,6 @@ export class AuthenticationService {
         if (token) {
           // set token property
           this.token = token;
-
           // store username and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('CurrentUser', JSON.stringify({ username: username, token: token }));
 
